@@ -5,7 +5,7 @@
  */
 package br.edu.ifpb.dac.cartaocredito;
 
-import java.time.LocalDate;
+import javax.json.Json;
 
 /**
  *
@@ -14,5 +14,6 @@ import java.time.LocalDate;
 public interface Cadastro {
     
     public void cadastrar(Cartao cartao);
+    public Cartao Tojson(Json json);
     
 }
