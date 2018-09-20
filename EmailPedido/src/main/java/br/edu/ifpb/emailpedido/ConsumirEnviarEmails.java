@@ -38,6 +38,7 @@ public class ConsumirEnviarEmails implements MessageListener { //Enviar o email
             
             //LOG.log(Level.INFO, "Message {0}", message);
             String body = message.getBody(String.class);
+            LOG.log(Level.INFO, "menssage {0}", body);
             JSONObject jobj = new JSONObject(body);
             serviceEmail.enviar(jobj.getString("destinatario") , jobj.getString("titulo"), jobj.getString("corpo"));
             //LOG.log(Level.INFO, "Body {0}", body);
