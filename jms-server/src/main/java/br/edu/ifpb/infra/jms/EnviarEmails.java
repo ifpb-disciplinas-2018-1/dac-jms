@@ -9,7 +9,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
-import javax.jms.Queue;
+import javax.jms.Topic;
 
 /**
  * @author Ricardo Job
@@ -29,7 +29,8 @@ public class EnviarEmails {
 
     @Resource(lookup = "java:global/jms/aula")
 //    @Resource(lookup = "jms/demoQueue")
-    private Queue queue; // Destination
+//    private Queue queue; // Destination
+    private Topic queue; // Destination
 
     @Inject
 //    @JMSConnectionFactory("jms/__defaultConnectionFactory")
