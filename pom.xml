@@ -17,5 +17,7 @@
         <module>jms-jse</module>
         <module>jms-server</module>
         <module>jms-mdb</module>
-    </modules>
+    <module>cartaocredito</module>
+    <module>cartao</module>
+  </modules>
 </project>
