@@ -18,6 +18,5 @@
         <module>jms-server</module>
         <module>jms-mdb</module>
     <module>cartaocredito</module>
-    <module>cartao</module>
   </modules>
 </project>
