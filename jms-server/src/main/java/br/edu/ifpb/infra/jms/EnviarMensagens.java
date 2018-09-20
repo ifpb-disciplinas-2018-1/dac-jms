@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSProducer;
-import javax.jms.Queue;
+import javax.jms.Topic;
 
 /**
  * @author Ricardo Job
@@ -15,7 +15,7 @@ import javax.jms.Queue;
  */
 @Stateless
 @JMSDestinationDefinition(
-        interfaceName = "javax.jms.Queue",
+        interfaceName = "javax.jms.Topic",
         name = "java:global/jms/aula",
         resourceAdapter = "jmsra",
         destinationName = "exemploAula"
@@ -25,7 +25,8 @@ public class EnviarMensagens {
 
     @Resource(lookup = "java:global/jms/aula")
 //    @Resource(lookup = "jms/demoQueue")
-    private Queue queue; // Destination
+//    private Queue queue; // Destination
+    private Topic queue; // Destination
 
     @Inject
     private JMSContext context;

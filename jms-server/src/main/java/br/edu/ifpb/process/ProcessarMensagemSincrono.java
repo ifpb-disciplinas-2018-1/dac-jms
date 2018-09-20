@@ -14,8 +14,8 @@ public class ProcessarMensagemSincrono {
 
     public void processar(String mensagem) {
         try {
-            Thread.sleep(5000);
             System.out.println("-----Enviando mensagem------");
+            Thread.sleep(5000);
             System.out.println("mensagem = " + mensagem);
             System.out.println("-----Mensagem enviada------");
         } catch (InterruptedException ex) {

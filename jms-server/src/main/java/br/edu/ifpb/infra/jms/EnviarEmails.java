@@ -10,10 +10,12 @@ import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
+
 import javax.jms.Queue;
 import javax.jms.Topic;
 import org.json.JSONObject;
 
+import javax.jms.Topic;
 
 /**
  * @author Ricardo Job
@@ -33,6 +35,7 @@ public class EnviarEmails {
 
     @Resource(lookup = "java:global/jms/pedido")
 //    @Resource(lookup = "jms/demoQueue")
+ 
     private Topic queue; // Destination
 
     @Inject
