@@ -1,6 +1,7 @@
 package br.edu.ifpb.emailpedido;
 
 import java.util.Properties;
+import javax.ejb.Stateless;
 import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -11,6 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+@Stateless
 public class EnviarEmail implements Email {
 
     @Override
