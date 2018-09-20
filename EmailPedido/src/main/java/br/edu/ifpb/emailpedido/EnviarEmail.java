@@ -38,7 +38,7 @@ public class EnviarEmail implements Email {
             message.setFrom(new InternetAddress("dac20181@gmail.com"));
 
             Address[] toUser = InternetAddress.parse(destinatario);
-
+            
             message.setRecipients(Message.RecipientType.TO, toUser);
             message.setSubject(titulo);
             message.setText(corpo);
