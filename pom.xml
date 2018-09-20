@@ -14,8 +14,16 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <modules>
-        <module>jms-jse</module>
+        <!--module>jms-jse</module-->
         <module>jms-server</module>
         <module>jms-mdb</module>
-    </modules>
+    <module>EmailPedido</module>
+  </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+    </dependencies>
 </project>
