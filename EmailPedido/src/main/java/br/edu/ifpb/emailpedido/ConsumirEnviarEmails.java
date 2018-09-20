@@ -19,7 +19,7 @@ import org.json.JSONObject;
 @MessageDriven(
     activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "topic"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "EmailExemplo"),
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:global/jms/pedido"), 
         @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "typeMessage='email'")
     }
