@@ -1,4 +1,4 @@
-package br.edu.ifpb.infra.jms;
+package br.edu.ifpb.cartaocredito;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -7,6 +7,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
+
 
 /**
  * @author Ricardo Job

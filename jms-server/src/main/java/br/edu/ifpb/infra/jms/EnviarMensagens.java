@@ -7,6 +7,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
+import javax.json.JsonObject;
 
 /**
  * @author Ricardo Job
@@ -15,7 +16,7 @@ import javax.jms.Queue;
  */
 @Stateless
 @JMSDestinationDefinition(
-        interfaceName = "javax.jms.Queue",
+        interfaceName = "javax.jms.Topic",
         name = "java:global/jms/aula",
         resourceAdapter = "jmsra",
         destinationName = "exemploAula"
@@ -32,6 +33,7 @@ public class EnviarMensagens {
 
     public void enviarMensagem(String mensagem) {
         JMSProducer producer = this.context.createProducer();
+         
         producer.send(queue, mensagem);
     }
 }

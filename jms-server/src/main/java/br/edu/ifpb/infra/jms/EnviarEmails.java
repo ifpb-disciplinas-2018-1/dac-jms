@@ -6,30 +6,30 @@ import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jms.JMSContext;
+import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
 import javax.jms.Queue;
+import javax.jms.Topic;
 
 /**
  * @author Ricardo Job
  * @mail ricardo.job@ifpb.edu.br
  * @since 10/09/2018, 08:04:30
  */
-//@Singleton
-//@Startup
 @Stateless
-//@JMSDestinationDefinition(
-//        interfaceName = "javax.jms.Queue",
-//        name = "java:global/jms/email",
-//        resourceAdapter = "jmsra",
-//        destinationName = "exemploEmail"
-//)
+@JMSDestinationDefinition(
+        interfaceName = "javax.jms.Topic",
+        name = "java:global/jms/pedido",
+        resourceAdapter = "jmsra",
+        destinationName = "EmailExemplo"
+)
 public class EnviarEmails {
 
     @Resource(lookup = "java:global/jms/aula")
 //    @Resource(lookup = "jms/demoQueue")
-    private Queue queue; // Destination
+    private Topic queue; // Destination
 
     @Inject
 //    @JMSConnectionFactory("jms/__defaultConnectionFactory")
