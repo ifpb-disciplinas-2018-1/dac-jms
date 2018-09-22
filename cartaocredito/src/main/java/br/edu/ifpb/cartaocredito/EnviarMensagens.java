@@ -22,32 +22,32 @@ import net.minidev.json.JSONObject;
 
 //./asadmin create-jms-resource --restype javax.jms.Topic jms/pedido
 @Stateless
-@JMSDestinationDefinition(
-        interfaceName = "javax.jms.Topic",
-        name = "java:global/jms/pedido",
-        resourceAdapter = "jmsra",
-        destinationName = "jms/pedido"
-//        resourceAdapter = "activemq-rar-5.12.0"
-)
+//@JMSDestinationDefinition(
+//        interfaceName = "javax.jms.Topic",
+//        name = "java:global/jms/pedido",
+//        resourceAdapter = "jmsra",
+//        destinationName = "jms/pedido"
+////        resourceAdapter = "activemq-rar-5.12.0"
+//)
 public class EnviarMensagens {
 
-    @Resource(lookup = "java:global/jms/pedido")
-//    @Resource(lookup = "jms/demoQueue")
-    private Queue queue; // Destination
-
-    @Inject
-    private JMSContext context;
-
-    public void enviarMensagem(String mensagem) {
-        JMSProducer producer = this.context.createProducer();
-       
-
-        
-        Message message = context.createTextMessage(mensagem);
-        try {
-            message.setStringProperty("typeMessage", " cardcredit");
-        } catch (JMSException ex) {
-            Logger.getLogger(EnviarMensagens.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    @Resource(lookup = "java:global/jms/pedido")
+////    @Resource(lookup = "jms/demoQueue")
+//    private Queue queue; // Destination
+//
+//    @Inject
+//    private JMSContext context;
+//
+//    public void enviarMensagem(String mensagem) {
+//        JMSProducer producer = this.context.createProducer();
+//       
+//
+//        
+//        Message message = context.createTextMessage(mensagem);
+//        try {
+//            message.setStringProperty("typeMessage", " cardcredit");
+//        } catch (JMSException ex) {
+//            Logger.getLogger(EnviarMensagens.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 }

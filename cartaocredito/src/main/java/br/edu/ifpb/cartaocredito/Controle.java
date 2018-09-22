@@ -8,6 +8,7 @@ package br.edu.ifpb.cartaocredito;
 import br.edu.ifpb.dac.cartaocredito.Cartao;
 import br.edu.ifpb.dac.cartaocredito.Service;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -21,7 +22,11 @@ import javax.inject.Named;
 public class Controle {
     @EJB
     private Service service;
-    private Cartao cartao = new Cartao();
+    private Cartao cartao;
+    @PostConstruct
+    public void inti(){
+        this.cartao = new Cartao();
+    }
     public String cadastro(){
         service.salvar(cartao);
         cartao = new Cartao();
