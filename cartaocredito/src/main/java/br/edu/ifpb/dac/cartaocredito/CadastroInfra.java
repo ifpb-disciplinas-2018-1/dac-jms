@@ -21,7 +21,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class CadastroInfra<T,KEY> implements CadastroIF<T, KEY> {
     
-    @PersistenceContext(unitName = "RHT_PU")
+    @PersistenceContext(unitName = "cartaocredito_PU")
     private EntityManager em;
     
     

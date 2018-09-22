@@ -26,7 +26,7 @@ import javax.json.bind.JsonbBuilder;
     activationConfig = {
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
         @ActivationConfigProperty(propertyName = "destination", propertyValue = "jms/pedido"),
-        @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:global/jms/aula"), 
+        @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:global/jms/pedido"), 
         @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "typeMansager='cardcredit'")
     }
 //        , mappedName = "jms/demoQueue"

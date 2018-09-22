@@ -19,17 +19,19 @@ import net.minidev.json.JSONObject;
  * @mail ricardo.job@ifpb.edu.br
  * @since 10/09/2018, 08:04:30
  */
+
+//./asadmin create-jms-resource --restype javax.jms.Topic jms/pedido
 @Stateless
 @JMSDestinationDefinition(
         interfaceName = "javax.jms.Topic",
-        name = "java:global/jms/aula",
+        name = "java:global/jms/pedido",
         resourceAdapter = "jmsra",
-        destinationName = "exemploAula"
+        destinationName = "jms/pedido"
 //        resourceAdapter = "activemq-rar-5.12.0"
 )
 public class EnviarMensagens {
 
-    @Resource(lookup = "java:global/jms/aula")
+    @Resource(lookup = "java:global/jms/pedido")
 //    @Resource(lookup = "jms/demoQueue")
     private Queue queue; // Destination
 

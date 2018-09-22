@@ -38,9 +38,8 @@ public class Cartao implements Serializable{
     // construtor padrao
     public Cartao() {
         LocalDate now = LocalDate.now();
-        dataDeValidade.of(now.getDayOfYear()+3,
-                now.getDayOfMonth(),
-                now.getDayOfMonth());
+        dataDeValidade = now;
+        dataDeValidade.ofYearDay(now.getYear()+3, now.getDayOfMonth());
          Random random = new Random();
          codigoParaValidacao = random.nextInt(999)+1;
     }
