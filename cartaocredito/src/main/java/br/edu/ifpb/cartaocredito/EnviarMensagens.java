@@ -40,11 +40,10 @@ public class EnviarMensagens {
 
     public void enviarMensagem(String mensagem) {
         JMSProducer producer = this.context.createProducer();
-        JSONObject json = new JSONObject();
-        json.put("resposta", mensagem);
+       
 
-        String men = json.toString();
-        Message message = context.createTextMessage(men);
+        
+        Message message = context.createTextMessage(mensagem);
         try {
             message.setStringProperty("typeMessage", " cardcredit");
         } catch (JMSException ex) {

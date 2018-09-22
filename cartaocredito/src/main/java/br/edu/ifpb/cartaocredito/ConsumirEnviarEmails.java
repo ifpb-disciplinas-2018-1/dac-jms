@@ -15,6 +15,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.json.bind.JsonbBuilder;
+import net.minidev.json.JSONObject;
         
 
 /**
@@ -54,7 +55,9 @@ public class ConsumirEnviarEmails implements MessageListener { //Enviar o email
             Cartao Json = JsonbBuilder.create().fromJson(dados, Cartao.class);
             Cartao cliente = service.buscar(Json.getNumeroDoCartao());
             if(cliente.equals(Json)&& cliente.getValor()<=Json.getValor()){
-                resposta = TipoResposta.APROVADO.name();
+                JSONObject json = new JSONObject();
+        json.put("cliente", cliente.getNomeDoCliente());
+        json.put("resposta", TipoResposta.APROVADO.name());
             }
             resposta = TipoResposta.REPROVADO.name();
             this.enviarMensagens.enviarMensagem(resposta);
