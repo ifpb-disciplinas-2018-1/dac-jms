@@ -7,31 +7,52 @@ package br.edu.ifpb.dac.cartaocredito;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.Random;
+import javax.annotation.Generated;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author IFPB
  */
+@Entity
 public class Cartao implements Serializable{
     
     // variáveis
+    @Id
+    @GeneratedValue
     private String numeroDoCartao;
     private String nomeDoCliente;
     private double valor;
+    @Column(length = 3,nullable = false,unique = true)
     private int codigoParaValidacao;
+    @Convert
     private LocalDate dataDeValidade;
 
     // construtor padrao
     public Cartao() {
+        LocalDate now = LocalDate.now();
+        dataDeValidade.of(now.getDayOfYear()+3,
+                now.getDayOfMonth(),
+                now.getDayOfMonth());
+         Random random = new Random();
+         codigoParaValidacao = random.nextInt(999)+1;
     }
 
     // construtor com todos os atributos
-    public Cartao(String numeroDoCartao, String nomeDoCliente, double valor, int codigoParaValidacao, LocalDate dataDeValidade) {
+    public Cartao(String numeroDoCartao, String nomeDoCliente, double valor) {
+        this();
         this.numeroDoCartao = numeroDoCartao;
         this.nomeDoCliente = nomeDoCliente;
         this.valor = valor;
-        this.codigoParaValidacao = codigoParaValidacao;
-        this.dataDeValidade = dataDeValidade;
+        
+       
     }
 
     // getters e setters
@@ -74,5 +95,43 @@ public class Cartao implements Serializable{
     public void setDataDeValidade(LocalDate dataDeValidade) {
         this.dataDeValidade = dataDeValidade;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 13 * hash + Objects.hashCode(this.numeroDoCartao);
+        hash = 13 * hash + Objects.hashCode(this.nomeDoCliente);
+        hash = 13 * hash + this.codigoParaValidacao;
+        hash = 13 * hash + Objects.hashCode(this.dataDeValidade);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cartao other = (Cartao) obj;
+        if (this.codigoParaValidacao != other.codigoParaValidacao) {
+            return false;
+        }
+        if (!Objects.equals(this.numeroDoCartao, other.numeroDoCartao)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeDoCliente, other.nomeDoCliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataDeValidade, other.dataDeValidade)) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

@@ -1,21 +1,19 @@
 package br.edu.ifpb.cartaocredito;
 
 import br.edu.ifpb.dac.cartaocredito.Cartao;
+import br.edu.ifpb.dac.cartaocredito.Service;
+import br.edu.ifpb.dac.cartaocredito.TipoResposta;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.json.Json;
-import javax.json.JsonBuilderFactory;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.json.bind.JsonbBuilder;
         
 
@@ -36,27 +34,30 @@ import javax.json.bind.JsonbBuilder;
 public class ConsumirEnviarEmails implements MessageListener { //Enviar o email
 
     private static final Logger LOG = Logger.getLogger(ConsumirEnviarEmails.class.getName());
-    private List<Cartao> cartaos =new ArrayList<>();
+    @EJB
+    private Service service;
+    @EJB
+    private EnviarMensagens enviarMensagens;
     
 
     public ConsumirEnviarEmails() {
-        cartaos.add(new Cartao("223", "jose", 100, 232, LocalDate.now()));
+        
     }
 
     @Override
     public void onMessage(Message message) {
+        String resposta;
         try {
-            LOG.log(Level.INFO, "Message {0}", message);
+            LOG.log(Level.INFO, "Message {0}", message.toString());
             String dados = message.getBody(String.class);
            
             Cartao Json = JsonbBuilder.create().fromJson(dados, Cartao.class);
-            
-            
-                    
-         
-           
-          
-
+            Cartao cliente = service.buscar(Json.getNumeroDoCartao());
+            if(cliente.equals(Json)&& cliente.getValor()<=Json.getValor()){
+                resposta = TipoResposta.APROVADO.name();
+            }
+            resposta = TipoResposta.REPROVADO.name();
+            this.enviarMensagens.enviarMensagem(resposta);
         } catch (JMSException ex) {
             Logger.getLogger(ConsumirEnviarEmails.class.getName()).log(Level.SEVERE, null, ex);
         }

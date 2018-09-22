@@ -1,13 +1,18 @@
 package br.edu.ifpb.cartaocredito;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
+import javax.jms.JMSException;
 import javax.jms.JMSProducer;
+import javax.jms.Message;
 import javax.jms.Queue;
-
+import javax.json.JsonObject;
+import net.minidev.json.JSONObject;
 
 /**
  * @author Ricardo Job
@@ -16,7 +21,7 @@ import javax.jms.Queue;
  */
 @Stateless
 @JMSDestinationDefinition(
-        interfaceName = "javax.jms.Queue",
+        interfaceName = "javax.jms.Topic",
         name = "java:global/jms/aula",
         resourceAdapter = "jmsra",
         destinationName = "exemploAula"
@@ -33,6 +38,15 @@ public class EnviarMensagens {
 
     public void enviarMensagem(String mensagem) {
         JMSProducer producer = this.context.createProducer();
-        producer.send(queue, mensagem);
+        JSONObject json = new JSONObject();
+        json.put("resposta", mensagem);
+
+        String men = json.toString();
+        Message message = context.createTextMessage(men);
+        try {
+            message.setStringProperty("typeMessage", " cardcredit");
+        } catch (JMSException ex) {
+            Logger.getLogger(EnviarMensagens.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
