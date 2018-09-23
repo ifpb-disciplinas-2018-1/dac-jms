@@ -20,8 +20,8 @@ public class ProdutoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nome = request.getParameter("nome");
-        Integer preco = Integer.valueOf(request.getParameter("preco"));
+        String nome = request.getParameter("nomeProduto");
+        Integer preco = Integer.valueOf(request.getParameter("precoProduto"));
 
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("/pedido");
 //        dispatcher.forward(request, response);

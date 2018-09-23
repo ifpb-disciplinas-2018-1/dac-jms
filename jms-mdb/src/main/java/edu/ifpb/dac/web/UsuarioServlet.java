@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CadastroUsuario", urlPatterns = "/cadastroUsuario")
-public class CadastroUsuario extends HttpServlet {
+@WebServlet(name = "UsuarioServlet", urlPatterns = "/cadastroUsuario")
+public class UsuarioServlet extends HttpServlet {
 
     @EJB
     ClienteDaoSingleton clienteDao;
