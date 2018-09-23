@@ -3,10 +3,12 @@ package edu.ifpb.dac.dao.implementations;
 import edu.ifpb.dac.dao.interfaces.PedidoDaoInterface;
 import edu.ifpb.dac.models.Pedido;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class PedidoDao implements PedidoDaoInterface {
 
     @PersistenceContext
