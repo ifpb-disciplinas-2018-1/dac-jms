@@ -16,7 +16,7 @@ import java.util.logging.Logger;
                 @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
                 @ActivationConfigProperty(propertyName = "destination", propertyValue = "topic"),
                 @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:global/jms/aprovado"),
-                @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "typeMessage!='email'")
+                @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "typeMessage='card'")
         }
 )
 public class ConsumirPedidoStatus implements MessageListener {
@@ -35,6 +35,9 @@ public class ConsumirPedidoStatus implements MessageListener {
                             new StringReader(body)
                     )
                     .readObject();
+
+            System.out.printf("\n\nCHEGOU EM CONSUMIR STATUS PEDIDO");
+            System.out.println("Corpo : " + jsonPedido.toString());
 
             enviarStatusPedido.sender(jsonPedido);
 

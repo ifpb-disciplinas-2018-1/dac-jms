@@ -14,12 +14,12 @@ import java.util.logging.Logger;
 @Stateless
 @JMSDestinationDefinition(
         interfaceName = "javax.jms.Topic",
-        name = "java:global/jms/aprovado",
+        name = "java:global/jms/pedido",
         resourceAdapter = "jmsra"
 )
 public class EnviarStatusPedido {
 
-    @Resource(lookup = "java:global/jms/aprovado")
+    @Resource(lookup = "java:global/jms/pedido")
     private Topic topic;
 
     @Inject
@@ -32,9 +32,11 @@ public class EnviarStatusPedido {
         try {
             JMSProducer producer = this.context.createProducer();
 
+            System.out.printf("\n\n CHEGOU ENVIAR STATUS PEDIDO");
+            System.out.println(jsonPedido.toString());
             producer.send(topic, createMessageEmail(jsonPedido));
 
-        } catch (JMSException ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             Logger.getLogger(EnviarStatusPedido.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -49,9 +51,7 @@ public class EnviarStatusPedido {
                 .add("titulo", "Seu Pedido foi " + jsonPedido.getString("status"))
                 .add("corpo", String.format(
                         "Olá %s :)!!! \n" +
-                                "Seu pedido %s foi %s.\n" +
-                                "Agora ele será fabricado e enviado... XD\n" +
-                                "É só esperar!!11!",
+                                "Seu pedido %s foi %s.\n",
                         clienteDao.recuperar().getEmail(),
                         jsonPedido.getString("idDoPedido"),
                         jsonPedido.getString("status"))
