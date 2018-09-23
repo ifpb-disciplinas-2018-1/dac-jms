@@ -8,10 +8,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Ricardo Job
- */
 @Entity
 public class PedidoJob implements Serializable {
 
