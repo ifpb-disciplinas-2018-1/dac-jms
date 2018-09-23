@@ -5,12 +5,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Email</h1>
+        <h1>Pedido</h1>
         <form method="POST" action="pedido">
-            <input type="text" name="numeroDoCartao" />
-            <input type="text" name="codigoParaValidacao" />
-            <input type="date" name="dataDeValidade" />
-            <input type="submit" value=">" />
+            Número do Cartão: <input type="text" name="numeroDoCartao" minlength="16" maxlength="16" required />
+            <br/>
+            Código para Validação: <input type="text" name="codigoParaValidacao" minlength="3" maxlength="3" required />
+            <br/>
+            Data de Vencimento: <input type="date" name="dataDeValidade" required />
+            <br/>
+            <br/>
+            <input type="submit" value="Prosseguir" />
         </form>
     </body>
 </html>

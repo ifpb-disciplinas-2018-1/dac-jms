@@ -1,4 +1,4 @@
-package edu.ifpb.dac.web;
+package edu.ifpb.dac.web.servlet;
 
 import edu.ifpb.dac.dao.ClienteDaoSingleton;
 import edu.ifpb.dac.infra.jms.EnviarNovoPedido;

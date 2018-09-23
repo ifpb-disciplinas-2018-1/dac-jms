@@ -1,4 +1,4 @@
-package edu.ifpb.dac.web;
+package edu.ifpb.dac.web.servlet;
 
 import edu.ifpb.dac.dao.ProdutoDaoSingleton;
 import edu.ifpb.dac.models.Produto;
