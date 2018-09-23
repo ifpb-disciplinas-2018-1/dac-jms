@@ -1,21 +1,16 @@
 package edu.ifpb.dac.models;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
-/**
- *
- * @author Ricardo Job
- */
 @Entity
 public class Produto implements Serializable {
 
     @Id
     private int id;
-    private String descricao;
     private Integer preco;
+    private String descricao;
 
     public Produto() {
     }
