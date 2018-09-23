@@ -1,10 +1,9 @@
 package edu.ifpb.dac.web;
 
-import edu.ifpb.dac.dao.ClienteDao;
 import edu.ifpb.dac.dao.ClienteDaoSingleton;
 import edu.ifpb.dac.models.Cliente;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "CadastroUsuario", urlPatterns = "/cadastroUsuario")
 public class CadastroUsuario extends HttpServlet {
 
-    @Inject
+    @EJB
     ClienteDaoSingleton clienteDao;
 
     @Override
