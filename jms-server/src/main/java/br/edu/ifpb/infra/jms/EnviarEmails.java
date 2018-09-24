@@ -12,18 +12,16 @@ import javax.jms.JMSProducer;
 import javax.jms.Message;
 
 import javax.jms.Queue;
-import javax.jms.Topic;
+import javax.jms.Topic; 
 import org.json.JSONObject;
 
-import javax.jms.Topic;
+import javax.jms.Topic; 
 
 /**
  * @author Ricardo Job
  * @mail ricardo.job@ifpb.edu.br
  * @since 10/09/2018, 08:04:30
  */
-//@Singleton
-//@Startup
 @Stateless
 @JMSDestinationDefinition(
         interfaceName = "javax.jms.Topic",

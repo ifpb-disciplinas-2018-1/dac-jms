@@ -6,6 +6,8 @@ import javax.inject.Inject;
 import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSProducer;
+import javax.jms.Queue;
+import javax.json.JsonObject; 
 import javax.jms.Topic;
 
 /**
@@ -33,6 +35,7 @@ public class EnviarMensagens {
 
     public void enviarMensagem(String mensagem) {
         JMSProducer producer = this.context.createProducer();
+         
         producer.send(queue, mensagem);
     }
 }
