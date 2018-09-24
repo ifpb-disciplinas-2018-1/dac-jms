@@ -51,10 +51,9 @@ public class EnviarStatusPedido {
                 .add("titulo", "Seu Pedido foi " + jsonPedido.getString("status"))
                 .add("corpo", String.format(
                         "Olá %s :)!!! \n" +
-                                "Seu pedido %s foi %s.\n",
-                        clienteDao.recuperar().getEmail(),
-                        jsonPedido.getString("idDoPedido"),
-                        jsonPedido.getString("status"))
+                                "Seu pedido foi %s.\n",
+                        jsonPedido.getString("cliente"),
+                        jsonPedido.getString("resposta"))
                 )
                 .build();
 
