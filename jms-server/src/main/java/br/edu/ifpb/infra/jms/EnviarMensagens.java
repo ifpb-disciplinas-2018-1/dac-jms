@@ -7,7 +7,8 @@ import javax.jms.JMSContext;
 import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import javax.json.JsonObject;
+import javax.json.JsonObject; 
+import javax.jms.Topic;
 
 /**
  * @author Ricardo Job
@@ -26,7 +27,8 @@ public class EnviarMensagens {
 
     @Resource(lookup = "java:global/jms/aula")
 //    @Resource(lookup = "jms/demoQueue")
-    private Queue queue; // Destination
+//    private Queue queue; // Destination
+    private Topic queue; // Destination
 
     @Inject
     private JMSContext context;

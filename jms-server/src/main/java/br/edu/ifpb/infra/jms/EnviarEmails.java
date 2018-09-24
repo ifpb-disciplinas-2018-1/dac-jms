@@ -10,8 +10,12 @@ import javax.jms.JMSDestinationDefinition;
 import javax.jms.JMSException;
 import javax.jms.JMSProducer;
 import javax.jms.Message;
+
 import javax.jms.Queue;
-import javax.jms.Topic;
+import javax.jms.Topic; 
+import org.json.JSONObject;
+
+import javax.jms.Topic; 
 
 /**
  * @author Ricardo Job
@@ -27,8 +31,9 @@ import javax.jms.Topic;
 )
 public class EnviarEmails {
 
-    @Resource(lookup = "java:global/jms/aula")
+    @Resource(lookup = "java:global/jms/pedido")
 //    @Resource(lookup = "jms/demoQueue")
+ 
     private Topic queue; // Destination
 
     @Inject
@@ -38,8 +43,15 @@ public class EnviarEmails {
     public void enviarEmailPara(String mensagem, String destinatario) {
         try {
             JMSProducer producer = this.context.createProducer();
-            Message message = context.createTextMessage(mensagem);
-            message.setStringProperty("destinatario", destinatario);
+            
+            JSONObject jobj = new JSONObject();
+            jobj.put("destinatario", "flaviohenrique638@gmail.com");
+            jobj.put("titulo", "flaviohenrique638@gmail.com");
+            jobj.put("corpo", "flaviohenrique638@gmail.com");
+            String men = jobj.toString();
+            Message message = context.createTextMessage(men);
+            message.setStringProperty("typeMessage", "email");
+            
             producer.send(queue, message);
         } catch (JMSException ex) {
             Logger.getLogger(EnviarEmails.class.getName()).log(Level.SEVERE, null, ex);

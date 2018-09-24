@@ -1,4 +1,4 @@
-package br.edu.ifpb.process;
+package edu.ifpb.dac.process;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,8 +14,8 @@ public class ProcessarMensagemSincrono {
 
     public void processar(String mensagem) {
         try {
-            System.out.println("-----Enviando mensagem------");
             Thread.sleep(5000);
+            System.out.println("-----Enviando mensagem------");
             System.out.println("mensagem = " + mensagem);
             System.out.println("-----Mensagem enviada------");
         } catch (InterruptedException ex) {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Escolher Produto</h1>
+
+        <br/><br/>
+
+        <table>
+            <tr>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    Preco
+                </td>
+                <td>
+                    Ações
+                </td>
+            </tr>
+            <tr>
+                <form method="post" action="produto">
+                    <td>
+                        <input type="text" value="Arroz" name="nomeProduto" readonly="true">
+                    </td>
+                    <td>
+                        <input type="number" value="5" name="precoProduto" readonly="true">
+                    </td>
+                    <td>
+                        <input type="submit" value=">">
+                    </td>
+                </form>
+            </tr>
+            <tr>
+                <form method="post" action="produto">
+                    <td>
+                        <input type="text" value="Feijão" name="nomeProduto" readonly="true">
+                    </td>
+                    <td>
+                        <input type="number" value="10" name="precoProduto" readonly="true">
+                    </td>
+                    <td>
+                        <input type="submit" value=">">
+                    </td>
+                </form>
+            </tr>
+        </table>
+
+    </body>
+</html>

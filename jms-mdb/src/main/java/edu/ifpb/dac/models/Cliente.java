@@ -1,15 +1,10 @@
-package edu.ifpb.dac;
+package edu.ifpb.dac.models;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * @author Ricardo Job
- * @mail ricardo.job@ifpb.edu.br
- * @since 19/03/2018, 08:32:25
- */
 @Entity
 public class Cliente implements Serializable {
 

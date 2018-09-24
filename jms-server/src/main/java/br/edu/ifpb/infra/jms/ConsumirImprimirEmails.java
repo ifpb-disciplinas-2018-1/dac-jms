@@ -16,8 +16,8 @@ import javax.jms.MessageListener;
  */
 @MessageDriven(
     activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "queue"),
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "topic"),
         @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:global/jms/aula"), 
       @ActivationConfigProperty(propertyName = "messageSelector", propertyValue = "destinatario='job'")
     }

@@ -1,3 +1,33 @@
+### Atividade
+
+Order - Lucas e Alexa
+    Formato: String (JSON)
+        - idDoPedido
+        - status (APROVADO, REPROVADO)
+Email - Flavio, Laerton e Matheus
+    Formato: String (JSON)
+        - destinatario
+        - titulo
+        - corpo     
+CardCredit - José e Julierme
+    Formato: String (JSON)
+        - numeroDoCartao
+        - nomeDoCliente
+        - valor
+        - codigoParaValidacao
+        - dataDeValidade
+
+Destination
+    Formato: Topic
+        - jms/pedido // Novos pedidos       
+            - typeMessage (email ou cardcredit)
+        - jms/aprovado // Pedidos aprovados/reprovados
+
+
+
+
+
+
 create-domain dac-exemplo
 start-domain dac-exemplo
 create-jms-resource --restype javax.jms.ConnectionFactory jms/aulaConnectionFactory
