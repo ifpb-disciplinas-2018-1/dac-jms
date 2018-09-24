@@ -59,7 +59,7 @@ public class EnviarNovoPedido {
                 .add("corpo", String.format(
                         "Olá %s :)!!! \n Obrigado pelo seu pedido <3<3<3 \n\n " +
                                 "Seu pedido para %s no valor de %d foi recebido e está sendo processado.",
-                        cliente.getNome(), produto.getDescricao(), produto.getId()
+                        cliente.getNome(), produto.getDescricao(), produto.getPreco()
                 ))
                 .build();
 
