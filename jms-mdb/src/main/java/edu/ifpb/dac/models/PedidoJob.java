@@ -1,30 +1,26 @@
-package edu.ifpb.dac;
+package edu.ifpb.dac.models;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Ricardo Job
- */
 @Entity
-public class Pedido implements Serializable {
+public class PedidoJob implements Serializable {
 
     @Id
     private int id;
 
     @OneToMany
     private List<Produto> produtos;
-    
+
     @ManyToOne
     private Cliente cliente;
 
-    public Pedido() {
+    public PedidoJob() {
         this.produtos = new ArrayList<>();
     }
 

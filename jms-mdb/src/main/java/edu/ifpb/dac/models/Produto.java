@@ -1,26 +1,21 @@
-package edu.ifpb.dac;
+package edu.ifpb.dac.models;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
-/**
- *
- * @author Ricardo Job
- */
 @Entity
 public class Produto implements Serializable {
 
     @Id
     private int id;
+    private Integer preco;
     private String descricao;
-    private BigDecimal preco;
 
     public Produto() {
     }
 
-    public Produto(String descricao, BigDecimal preco) {
+    public Produto(String descricao, Integer preco) {
         this.descricao = descricao;
         this.preco = preco;
     }
@@ -41,11 +36,11 @@ public class Produto implements Serializable {
         this.descricao = descricao;
     }
 
-    public BigDecimal getPreco() {
+    public Integer getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(Integer preco) {
         this.preco = preco;
     }
 
